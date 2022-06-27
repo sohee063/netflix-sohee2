@@ -3,13 +3,18 @@ import { movieAction } from "../redux/actions/MovieAction";
 import { useDispatch, useSelector } from "react-redux";
 import Banner from "../component/Banner";
 import MovieSlide from "../component/MovieSlide";
-import { Hearts } from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { popularMovies, topRatedMovies, upcomingMovies, loading } =
-    useSelector((state) => state.movie);
-
+  const {
+    popularMovies,
+    topRatedMovies,
+    upcomingMovies,
+    loading,
+    moviesDetail,
+  } = useSelector((state) => state.movie);
+  console.log("popular", moviesDetail);
   let bannerImg = Math.floor(Math.random() * 20);
 
   useEffect(() => {
@@ -21,10 +26,10 @@ const Home = () => {
   // true : 데이터 도착 전
   // false : 데이터 도착 후, 에러 발생 시
   if (loading) {
-    return <Hearts color="F2EBE9" height={80} width={200} />;
+    return <ThreeDots color="#00BFFF" height={80} width={80} />;
   } else {
     return (
-      <div>
+      <div className="main">
         <Banner movie={upcomingMovies.results[bannerImg]} />
         <h1>Popular Movie</h1>
         <MovieSlide movies={popularMovies} />

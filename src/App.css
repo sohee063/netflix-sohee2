@@ -1,3 +1,7 @@
+.app {
+  background-color: black;
+}
+
 .nav-item {
   color: white;
   text-decoration: none;
@@ -34,4 +38,69 @@
 .card {
   width: 300px;
   height: 200px;
+  font-size: 15px;
+  margin: 50px;
+}
+
+.card:hover {
+  transform: scale(1.4);
+  transform-origin: center;
+  transition: 0.5s;
+  /* margin: 50px; */
+  margin-top: 50px;
+  z-index: -1;
+}
+
+.react-multi-carousel-track {
+  padding: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(43, 41, 41, 0.9);
+  z-index: -1;
+}
+
+.overlay > h1 {
+  color: white;
+  font-size: 30px;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+  z-index: -1;
+}
+
+.card-info > span {
+  color: white;
+}
+
+.movieDetailpage {
+  /* background-color: #212529; */
+  height: 100vh;
+  width: 100vw;
+}
+
+.detailMoviePoster {
+  margin-top: 30px;
+  width: 100%;
+  height: 60vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.movie-detail-info {
+  margin-top: 30px;
+  padding-left: 20px;
+  color: whitesmoke;
+}
+
+.movie-detail-info-title {
+  font-size: 80px;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MovieCard from "./MovieCard";
@@ -22,7 +23,6 @@ const responsive = {
   },
 };
 const MovieSlide = ({ movies }) => {
-  console.log("movies", movies);
   return (
     <div>
       <Carousel responsive={responsive}>
