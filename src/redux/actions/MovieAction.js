@@ -49,17 +49,22 @@ function getMovies(movieId) {
 
 function getDetailMovies(movieId) {
   return async (dispatch) => {
-    dispatch({ type: "GET_MOVIES_REQUEST" });
-    const movieDetailApi = api.get(
-      `/movie/${movieId}?api_key=${API_KEY}&language=en-US`
-    );
-    let [movieDetail] = await Promise.all([movieDetailApi]);
-    dispatch({
-      type: "GET_MOVIES_DETAIL",
-      payload: {
-        movieDetail: movieDetail.data,
-      },
-    });
+    try {
+      dispatch({ type: "GET_MOVIES_REQUEST" });
+      const movieDetailApi = api.get(
+        `/movie/${movieId}?api_key=${API_KEY}&language=en-US`
+      );
+      let movieDetail = await movieDetailApi;
+      dispatch({
+        type: "GET_MOVIES_DETAIL",
+        payload: {
+          movieDetail: movieDetail.data,
+        },
+      });
+    } catch (error) {
+      //에러 핸들링 하는 곳
+      dispatch({ type: "GET_MOVIES_FAILURE" });
+    }
   };
 }
 

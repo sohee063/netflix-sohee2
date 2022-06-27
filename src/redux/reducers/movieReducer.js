@@ -24,6 +24,7 @@ function movieReducer(state = initialState, action) {
         loading: false,
       };
     case "GET_MOVIES_DETAIL":
+      console.log("state", state);
       return {
         ...state,
         movieDetail: payload.movieDetail,
