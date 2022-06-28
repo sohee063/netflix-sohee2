@@ -35,39 +35,18 @@ const responsive = {
 };
 const MovieSlide = ({ movies }) => {
   return (
-    <Carousel responsive={responsive} centerMode={true}>
+    <Carousel
+      responsive={responsive}
+      centerMode={true}
+      autoPlay={true}
+      autoPlaySpeed={Math.random() * 10000}
+      infinite={true}
+    >
       {movies.results.map((item, index) => (
         <MovieCard item={item} key={index} />
       ))}
     </Carousel>
-
-    // <Carousel responsive={responsive} indicators={false}>
-    //   {movies.results.map((item, index) => (
-    //     <Carousel.Item>
-    //       <div className="each-slider">
-    //         <MovieCard item={item} key={index} />;
-    //       </div>
-    //     </Carousel.Item>
-    //   ))}
-    //   ;
-    // </Carousel>
   );
 };
 
 export default MovieSlide;
-
-{
-  /* <Carousel responsive={responsive}>
-  {topMovie.map((array) => {
-    return (
-      <Carousel.Item>
-        <div className="each-slider">
-          {array.map((movie) => {
-            return <SingleCardSlider movie={movie}></SingleCardSlider>;
-          })}
-        </div>
-      </Carousel.Item>
-    );
-  })}
-</Carousel>; */
-}

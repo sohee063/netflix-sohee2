@@ -14,10 +14,7 @@ const Navigation = () => {
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid>
         <Link to="/">
-          <img
-            width={120}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs-jOdZ58Y8HbxPbaUxxaUyGMqu3zvtO8frCdL_3MzPE6cOB5ZAV5TqwRIjJ6sdTl-_A&usqp=CAU"
-          />
+          <img width={120} src="/img/logo.png" />
         </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

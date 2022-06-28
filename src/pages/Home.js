@@ -33,15 +33,15 @@ const Home = () => {
         <Banner movie={popularMovies?.results[bannerImg]} />
         <div className="movieslide">
           <div>
-            <h1 className="movieslide-title">Popular Movie</h1>
+            <h1 className="movieslide-title">Popular Movies</h1>
             <MovieSlide movies={popularMovies} />
           </div>
           <div>
-            <h1 className="movieslide-title">Top rated Movie</h1>
+            <h1 className="movieslide-title">Top rated Movies</h1>
             <MovieSlide movies={topRatedMovies} />
           </div>
           <div>
-            <h1 className="movieslide-title">upcoming Movie</h1>
+            <h1 className="movieslide-title">upcoming Movies</h1>
             <MovieSlide movies={upcomingMovies} />
           </div>
         </div>
