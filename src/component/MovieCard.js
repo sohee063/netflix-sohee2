@@ -18,11 +18,12 @@ const MovieCard = ({ item }) => {
   return (
     <div
       onClick={goToMovieDetail}
-      className="card"
+      //   className="card"
+      className="react-multi-carousel-item"
       style={{
         backgroundImage:
           "url(" +
-          `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path}` +
+          `https://image.tmdb.org/t/p/w600_and_h900_bestv2///${item.poster_path}` +
           ")",
       }}
     >

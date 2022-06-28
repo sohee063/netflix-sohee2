@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap");
 
 .app {
   background-color: black;
@@ -19,7 +20,10 @@
 .banner {
   height: 600px;
   display: flex;
+  width: 100%;
   align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .banner::before {
@@ -36,30 +40,49 @@
   margin-left: 30px;
   color: white;
   z-index: 1;
+  font-family: "Cinzel", serif;
 }
 
-.card {
-  width: 300px;
-  height: 200px;
-  font-size: 15px;
-  margin: 50px;
+.main {
+  /* width: 100vw; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 
-.card:hover {
-  transform: scale(1.4);
+.react-multi-carousel-item:hover {
+  transform: scale(1.2);
+  transform-origin: center;
+  transition: 0.3s;
+  border-radius: 5px;
+  margin: 10px;
+  z-index: 99;
+}
+
+.react-multi-carousel-list:hover {
   transform-origin: center;
   transition: 0.5s;
-  /* margin: 50px; */
-  margin-top: 50px;
-  z-index: -1;
+  border-radius: 5px;
+  margin: 10px;
+  z-index: 90;
 }
 
-.react-multi-carousel-track {
-  padding: 50px;
+.movieslide {
+  width: 90%;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.movieslide-title {
+  color: white;
+  padding: 15px;
+}
+
+.react-multi-carousel-item {
+  width: 300px;
+  height: 250px;
+  background-size: cover;
+  z-index: 0;
+  border-radius: 5px;
 }
 
 .overlay {
@@ -67,23 +90,21 @@
   width: 100%;
   height: 100%;
   background: rgba(43, 41, 41, 0.9);
-  z-index: -1;
+  z-index: 99;
 }
-
 .overlay > h1 {
   color: white;
   font-size: 30px;
 }
 
-.card:hover .overlay {
+.react-multi-carousel-item:hover .overlay {
   opacity: 1;
-  z-index: -1;
+  z-index: 99;
 }
 
 .card-info > span {
   color: white;
 }
-
 .movieDetailpage {
   /* background-color: #212529; */
   height: 100vh;
@@ -92,7 +113,7 @@
 
 .detailMoviePoster {
   margin-top: 30px;
-  width: 100%;
+  /* width: 100px; */
   height: 800px;
   background-repeat: no-repeat;
   background-size: cover;

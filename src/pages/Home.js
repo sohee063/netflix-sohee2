@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Banner from "../component/Banner";
 import MovieSlide from "../component/MovieSlide";
 import { ThreeDots } from "react-loader-spinner";
+import { Container } from "react-bootstrap";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -30,12 +31,20 @@ const Home = () => {
     return (
       <div className="main">
         <Banner movie={popularMovies?.results[bannerImg]} />
-        <h1>Popular Movie</h1>
-        <MovieSlide movies={popularMovies} />
-        <h1>Top rated Movie</h1>
-        <MovieSlide movies={topRatedMovies} />
-        <h1>upcoming Movie</h1>
-        <MovieSlide movies={upcomingMovies} />
+        <div className="movieslide">
+          <div>
+            <h1 className="movieslide-title">Popular Movie</h1>
+            <MovieSlide movies={popularMovies} />
+          </div>
+          <div>
+            <h1 className="movieslide-title">Top rated Movie</h1>
+            <MovieSlide movies={topRatedMovies} />
+          </div>
+          <div>
+            <h1 className="movieslide-title">upcoming Movie</h1>
+            <MovieSlide movies={upcomingMovies} />
+          </div>
+        </div>
       </div>
     );
   }
