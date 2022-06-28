@@ -68,7 +68,51 @@ function getDetailMovies(movieId) {
   };
 }
 
+function getRelatedMovies(movieId) {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: "GET_MOVIES_REQUEST" });
+      const relatedMoviesApi = api.get(
+        `/movie/${movieId}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
+      );
+      let relatedMovies = await relatedMoviesApi;
+      dispatch({
+        type: "GET_RELATED_MOVIES",
+        payload: {
+          relatedMovies: relatedMovies.data,
+        },
+      });
+    } catch (error) {
+      //에러 핸들링 하는 곳
+      dispatch({ type: "GET_MOVIES_FAILURE" });
+    }
+  };
+}
+
+function getReviews(movieId) {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: "GET_MOVIES_REQUEST" });
+      const reviewsApi = api.get(
+        `/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+      );
+      let reviews = await reviewsApi;
+      dispatch({
+        type: "GET_REVIEWS",
+        payload: {
+          reviews: reviews.data,
+        },
+      });
+    } catch (error) {
+      //에러 핸들링 하는 곳
+      dispatch({ type: "GET_MOVIES_FAILURE" });
+    }
+  };
+}
+
 export const movieAction = {
   getMovies,
   getDetailMovies,
+  getRelatedMovies,
+  getReviews,
 };

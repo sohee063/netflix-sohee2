@@ -2,7 +2,6 @@ import React from "react";
 import { Badge } from "react-bootstrap";
 
 const MovieDetailInfo = ({ movie }) => {
-  console.log("movie", movie);
   return (
     <div className="movie-detail-info">
       <div className="movie-detail-info-title">{movie?.title}</div>
@@ -10,7 +9,7 @@ const MovieDetailInfo = ({ movie }) => {
       <div>
         {movie?.genres.map((el, index) => (
           <Badge key={index} bg="danger">
-            {el.name}
+            {el?.name}
           </Badge>
         ))}
       </div>

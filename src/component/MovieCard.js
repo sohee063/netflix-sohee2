@@ -18,8 +18,8 @@ const MovieCard = ({ item }) => {
   return (
     <div
       onClick={goToMovieDetail}
-      //   className="card"
-      className="react-multi-carousel-item"
+      className="card"
+      // className="react-multi-carousel-item"
       style={{
         backgroundImage:
           "url(" +

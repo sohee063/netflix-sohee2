@@ -8,7 +8,7 @@ const MovieDetailPoster = ({ movie }) => {
         style={{
           backgroundImage:
             "url(" +
-            `https://image.tmdb.org/t/p/original///${movie.poster_path}` +
+            `https://image.tmdb.org/t/p/original///${movie?.poster_path}` +
             ")",
         }}
       ></div>
