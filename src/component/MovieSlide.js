@@ -41,6 +41,7 @@ const MovieSlide = ({ movies }) => {
       autoPlay={true}
       autoPlaySpeed={Math.random() * 10000}
       infinite={true}
+      className="carousel"
     >
       {movies.results.map((item, index) => (
         <MovieCard item={item} key={index} />

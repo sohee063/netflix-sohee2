@@ -25,12 +25,10 @@ const MovieDetail = () => {
   }, []);
 
   const showRelatedMovies = () => {
-    console.log("관련", select);
     setSelect(false);
   };
 
   const showReviews = () => {
-    console.log("리뷰", select);
     setSelect(true);
   };
 

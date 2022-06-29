@@ -53,6 +53,7 @@
 
 .movieslide {
   width: 90%;
+  margin-bottom: 200px;
 }
 
 .movieslide-title {
@@ -295,4 +296,27 @@
 
 .detailInfoAdult {
   color: #f34079;
+}
+
+.sortedMovies {
+  margin-bottom: 25px;
+  height: 700px;
+  width: 400px;
+  color: white;
+  position: relative;
+}
+
+.sortedMovies::before {
+  position: absolute;
+  left: 0;
+  width: 400px;
+  height: 700px;
+  content: "";
+  background: linear-gradient(to right, black, transparent);
+}
+
+.sortedInfo {
+  position: absolute;
+  width: 70%;
+  z-index: 1;
 }
