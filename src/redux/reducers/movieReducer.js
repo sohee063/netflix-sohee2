@@ -7,6 +7,7 @@ let initialState = {
   movieDetail: {},
   relatedMovies: {},
   reviews: {},
+  optionMovies: {},
 };
 
 function movieReducer(state = initialState, action) {
@@ -24,6 +25,7 @@ function movieReducer(state = initialState, action) {
         upcomingMovies: payload.upcomingMovies,
         genreList: payload.genreList,
         loading: false,
+        optionMovies: payload.popularMovies.results,
       };
     case "GET_MOVIES_DETAIL":
       return {
@@ -41,6 +43,12 @@ function movieReducer(state = initialState, action) {
       return {
         ...state,
         reviews: payload.reviews,
+        loading: false,
+      };
+    case "GET_OPTION_MOVIES":
+      return {
+        ...state,
+        optionMovies: payload.optionMovies,
         loading: false,
       };
     default:

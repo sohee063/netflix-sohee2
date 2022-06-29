@@ -14,7 +14,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MovieCard = ({ item }) => {
   const { genreList } = useSelector((state) => state.movie);
-  //   console.log("원조", item.genre_ids);
 
   const dispatch = useDispatch();
   let navigate = useNavigate();

@@ -298,12 +298,20 @@
   color: #f34079;
 }
 
+.sortedtitle-1 {
+  font-size: 30px;
+}
+
 .sortedMovies {
-  margin-bottom: 25px;
+  margin-top: 50px;
   height: 700px;
   width: 400px;
   color: white;
   position: relative;
+  border-radius: 35px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(246, 0, 0, 0.17) 0px 12px 13px, rgba(255, 199, 199, 0.09) 0px -3px 5px;
 }
 
 .sortedMovies::before {
@@ -312,11 +320,34 @@
   width: 400px;
   height: 700px;
   content: "";
-  background: linear-gradient(to right, black, transparent);
+  background: linear-gradient(to right, rgb(0, 0, 0), transparent);
+}
+
+.sortedMovies:hover {
+  transform: scale(1.02);
+  transition: 500ms;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .sortedInfo {
   position: absolute;
-  width: 70%;
+  width: 60%;
   z-index: 1;
+  margin: 20px;
+}
+
+.sortFilterBox {
+  margin-top: 50px;
+  border-radius: 30px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.sortFilterBox {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }

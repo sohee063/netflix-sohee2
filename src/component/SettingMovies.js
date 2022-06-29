@@ -1,20 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Badge } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import {
-  faStar,
-  faUsers,
-  faCalendarDays,
-  faClock,
-} from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { faStar, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { movieAction } from "../redux/actions/MovieAction";
 
 const SettingMovies = ({ movie }) => {
   const { genreList } = useSelector((state) => state.movie);
-  console.log("장르", genreList);
-  console.log("movie", movie);
+  // console.log("옵션", movie);
+  let dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(movieAction.getMovies());
+  }, []);
   return (
-    <Row mt={50}>
+    <Row>
       {movie.map((item) => (
         <Col className="relatedRow">
           <div
@@ -27,7 +26,7 @@ const SettingMovies = ({ movie }) => {
             }}
           >
             <div className="sortedInfo">
-              <h1 className="sortedtitle">{item?.title}</h1>
+              <h1 className="sortedtitle-1">{item?.title}</h1>
               <div>
                 {item?.genre_ids.map((ids, index) => (
                   <Badge className="detailInfoGenre" key={index} bg="danger">
@@ -46,6 +45,10 @@ const SettingMovies = ({ movie }) => {
               </span>
               <span className="detailInfoAdult">
                 {item?.adult ? "청불" : "Under 18"}
+              </span>
+              <span>
+                <FontAwesomeIcon color="tomato" icon={faUsers} />{" "}
+                {item?.release_date}{" "}
               </span>
             </div>
           </div>

@@ -1,8 +1,7 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const MovieDetailReviews = ({ review }) => {
-  console.log("알고싶은것", review);
   return (
     <Container className="relativeMovieBanner">
       <div className="review-box">

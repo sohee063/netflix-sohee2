@@ -1,6 +1,5 @@
 import React from "react";
 const MovieDetailPoster = ({ movie }) => {
-  console.log("movie", movie);
   return (
     <div>
       <div

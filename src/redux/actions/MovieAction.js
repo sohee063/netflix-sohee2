@@ -110,9 +110,22 @@ function getReviews(movieId) {
   };
 }
 
+function getOptionMovie(optionMovies) {
+  return (dispatch) => {
+    dispatch({ type: "GET_MOVIES_REQUEST" });
+    dispatch({
+      type: "GET_OPTION_MOVIES",
+      payload: {
+        optionMovies: optionMovies,
+      },
+    });
+  };
+}
+
 export const movieAction = {
   getMovies,
   getDetailMovies,
   getRelatedMovies,
   getReviews,
+  getOptionMovie,
 };
