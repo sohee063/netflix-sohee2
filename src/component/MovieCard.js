@@ -4,6 +4,13 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { movieAction } from "../redux/actions/MovieAction";
+import {
+  faStar,
+  faUsers,
+  faCalendarDays,
+  faClock,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MovieCard = ({ item }) => {
   const { genreList } = useSelector((state) => state.movie);
@@ -31,14 +38,18 @@ const MovieCard = ({ item }) => {
         <h1>{item.title}</h1>
         <div>
           {item?.genre_ids.map((id, index) => (
-            <Badge key={index} bg="danger">
+            <Badge className="detailInfoGenre" key={index} bg="danger">
               {genreList.find((item) => item.id === id).name}
             </Badge>
           ))}
         </div>
         <div className="card-info">
-          <span>{item.vote_average}</span>
-          <span>{item.adult ? "청불" : "Under 18"}</span>
+          <span>
+            <FontAwesomeIcon color="yellow" icon={faStar} /> {item.vote_average}
+          </span>
+          <span className="detailInfoAdult">
+            {item?.adult ? "청불" : "Under 18"}
+          </span>
         </div>
       </div>
     </div>

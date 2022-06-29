@@ -11,6 +11,7 @@
   color: white;
   text-decoration: none;
   margin: 10px;
+  font-size: larger;
 }
 
 .nav-item:hover {
@@ -92,6 +93,7 @@
 }
 
 .card-info > span {
+  margin-left: 10px;
   color: white;
 }
 .movieDetailpage {
@@ -276,4 +278,21 @@
 
 .review-content {
   color: white;
+}
+
+.detailInfoGenre {
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
+.detailInfoOverview {
+  border-top: 1px solid white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid white;
+}
+
+.detailInfoAdult {
+  color: #f34079;
 }
