@@ -36,9 +36,11 @@ const Sort = ({ movie }) => {
       case "Release Day ↓":
         return dispatch(
           movieAction.getOptionMovie(
-            (a, b) =>
-              b.release_date.replace(/\-/g, "") -
-              a.release_date.replace(/\-/g, "")
+            movie.results.sort(
+              (a, b) =>
+                b.release_date.replace(/\-/g, "") -
+                a.release_date.replace(/\-/g, "")
+            )
           )
         );
 

@@ -54,6 +54,7 @@
 .movieslide {
   width: 90%;
   margin-bottom: 200px;
+  /* z-index: 99; */
 }
 
 .movieslide-title {
@@ -62,43 +63,53 @@
   margin-top: 50px;
 }
 
-.card {
-  width: 300px;
-  height: 250px;
-  background-size: cover;
+.carousel ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel li {
+  margin: 5px;
+}
+
+.carousel li div {
+  height: 230px;
   border-radius: 5px;
 }
-.card:hover {
-  position: absolute;
-  transform: scale(1.1);
-  position: absolute;
+.carousel li:hover {
+  transform: scale(1.5);
   transition: 0.3s;
   border-radius: 5px;
+  /* z-index: 1; */
+  margin: 100px;
+}
+
+.carousel li:hover .overlay {
+  opacity: 1;
+  z-index: 1;
+}
+
+.vote_average {
+  color: white;
+  margin-right: 10px;
 }
 
 .overlay {
   opacity: 0;
   width: 100%;
-  height: 100%;
+  height: 50px;
   background: rgba(43, 41, 41, 0.9);
-  z-index: 99;
+  z-index: 2;
+  padding: 10px;
 }
 .overlay > h1 {
   color: white;
-  font-size: 30px;
+  font-size: 25px;
 }
 
-.card:hover .overlay {
-  opacity: 1;
-  z-index: -1;
-}
-
-.card-info > span {
-  margin-left: 10px;
-  color: white;
-}
 .movieDetailpage {
-  height: 100&;
+  height: 100%;
   width: 100vw;
 }
 

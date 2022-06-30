@@ -8,29 +8,45 @@ function getMovies(movieId) {
   return async (dispatch) => {
     try {
       dispatch({ type: "GET_MOVIES_REQUEST" });
+
       const popularMovieApi = api.get(
-        `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        `/movie/popular?api_key=${API_KEY}&language=en-US&page=${Math.floor(
+          Math.random() * 20
+        )}`
       );
 
       const topRatedApi = api.get(
-        `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
+        `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${Math.floor(
+          Math.random() * 20
+        )}`
       );
 
       const upcomingApi = api.get(
-        `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+        `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${Math.floor(
+          Math.random() * 20
+        )}`
       );
 
       const genreApi = api.get(
         `/genre/movie/list?api_key=${API_KEY}&language=en-US`
       );
 
-      let [popularMovies, topRatedMovies, upcomingMovies, genreList] =
-        await Promise.all([
-          popularMovieApi,
-          topRatedApi,
-          upcomingApi,
-          genreApi,
-        ]);
+      const allMovieApi = api.get(
+        `movie/now_playing?api_key=${API_KEY}&language=en-US`
+      );
+      let [
+        popularMovies,
+        topRatedMovies,
+        upcomingMovies,
+        genreList,
+        allMovies,
+      ] = await Promise.all([
+        popularMovieApi,
+        topRatedApi,
+        upcomingApi,
+        genreApi,
+        allMovieApi,
+      ]);
       dispatch({
         type: "GET_MOVIES_SUCCESS",
         payload: {
@@ -38,6 +54,7 @@ function getMovies(movieId) {
           topRatedMovies: topRatedMovies.data,
           upcomingMovies: upcomingMovies.data,
           genreList: genreList.data.genres,
+          allMovies: allMovies.data,
         },
       });
     } catch (error) {

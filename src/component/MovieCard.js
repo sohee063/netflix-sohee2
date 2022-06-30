@@ -24,8 +24,7 @@ const MovieCard = ({ item }) => {
   return (
     <div
       onClick={goToMovieDetail}
-      className="card"
-      // className="react-multi-carousel-item"
+      className="cardinfo"
       style={{
         backgroundImage:
           "url(" +
@@ -35,15 +34,13 @@ const MovieCard = ({ item }) => {
     >
       <div className="overlay">
         <h1>{item.title}</h1>
+        {item?.genre_ids.map((id, index) => (
+          <Badge className="detailInfoGenre" key={index} bg="danger">
+            {genreList.find((item) => item.id === id).name}
+          </Badge>
+        ))}
         <div>
-          {item?.genre_ids.map((id, index) => (
-            <Badge className="detailInfoGenre" key={index} bg="danger">
-              {genreList.find((item) => item.id === id).name}
-            </Badge>
-          ))}
-        </div>
-        <div className="card-info">
-          <span>
+          <span className="vote_average">
             <FontAwesomeIcon color="yellow" icon={faStar} /> {item.vote_average}
           </span>
           <span className="detailInfoAdult">
