@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="black" variant="dark" expand="lg">
       <Container fluid>
         <Link to="/">
           <img width={120} src="/img/logo.png" />
@@ -23,10 +23,10 @@ const Navigation = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Link to="/" className="nav-item">
+            <Link to="/" className="navitem">
               Home
             </Link>
-            <Link to="/movies" className="nav-item">
+            <Link to="/movies" className="navitem">
               Movies
             </Link>
           </Nav>

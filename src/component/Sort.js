@@ -1,39 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavDropdown } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { movieAction } from "../redux/actions/MovieAction";
 
 const Sort = ({ movie }) => {
   let dispatch = useDispatch();
+  const [target, setTarget] = useState("");
 
   const sortMovieByOption = (event) => {
     console.log(event.target.text);
     switch (event.target.text) {
       case "Popularity ↑":
+        setTarget(event.target.text);
         return dispatch(
           movieAction.getOptionMovie(
             movie.results.sort((a, b) => a.popularity - b.popularity)
           )
         );
       case "Popularity ↓":
+        setTarget(event.target.text);
         return dispatch(
           movieAction.getOptionMovie(
             movie.results.sort((a, b) => b.popularity - a.popularity)
           )
         );
       case "Vote ↓":
+        setTarget(event.target.text);
         return dispatch(
           movieAction.getOptionMovie(
             movie.results.sort((a, b) => a.vote_average - b.vote_average)
           )
         );
       case "Vote ↑":
+        setTarget(event.target.text);
         return dispatch(
           movieAction.getOptionMovie(
             movie.results.sort((a, b) => b.vote_average - a.vote_average)
           )
         );
       case "Release Day ↓":
+        setTarget(event.target.text);
         return dispatch(
           movieAction.getOptionMovie(
             movie.results.sort(
@@ -45,6 +51,7 @@ const Sort = ({ movie }) => {
         );
 
       case "Release Day ↑":
+        setTarget(event.target.text);
         return dispatch(
           movieAction.getOptionMovie(
             movie.results.sort(
@@ -58,7 +65,6 @@ const Sort = ({ movie }) => {
         return dispatch(movieAction.getOptionMovie(movie));
     }
   };
-  // console.log("정렬됐어", sortMovies);
 
   return (
     <div>
@@ -84,6 +90,7 @@ const Sort = ({ movie }) => {
           Release Day ↑
         </NavDropdown.Item>
       </NavDropdown>
+      <h3 className="targetValue">{target}</h3>
     </div>
   );
 };

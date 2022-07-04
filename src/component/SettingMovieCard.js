@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Row, Col, Badge } from "react-bootstrap";
+import React from "react";
+import { Col, Badge } from "react-bootstrap";
 import { faStar, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
@@ -12,10 +12,7 @@ const SettingMovieCard = ({ item }) => {
   let navigate = useNavigate();
   const { genreList } = useSelector((state) => state.movie);
 
-  console.log("dksshd", item);
-
   const moveToMovieDetail = () => {
-    // console.log("data", item);
     navigate(`/movies/${item.id}`);
     dispatch(movieAction.getDetailMovies(item.id));
   };

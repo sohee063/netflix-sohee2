@@ -14,21 +14,21 @@ const Movies = () => {
   }, []);
 
   return (
-    <div>
-      <Row>
-        <Col lg={3} sm={12}>
-          <div className="sortFilterBox">
-            <Row>
-              <Sort movie={popularMovies} />
-              <Filter movie={popularMovies.results} />
-            </Row>
+    <Row className="moviesPage">
+      <Col lg={4} md={6} sm={12}>
+        <div className="sortfilterBox">
+          <div className="sortBox">
+            <Sort movie={popularMovies} />
           </div>
-        </Col>
-        <Col lg={9} sm={12}>
-          <SettingMovies movie={optionMovies} />
-        </Col>
-      </Row>
-    </div>
+          <div className="filterBox">
+            <Filter movie={popularMovies.results} />
+          </div>
+        </div>
+      </Col>
+      <Col lg={8} md={6} sm={12}>
+        <SettingMovies movie={optionMovies} />
+      </Col>
+    </Row>
   );
 };
 

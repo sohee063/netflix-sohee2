@@ -11,7 +11,6 @@ const Home = () => {
   const { popularMovies, topRatedMovies, upcomingMovies, loading, allMovies } =
     useSelector((state) => state.movie);
   let bannerImg = Math.floor(Math.random() * 20);
-  console.log("allMovie", popularMovies);
   useEffect(() => {
     dispatch(movieAction.getMovies());
   }, []);
