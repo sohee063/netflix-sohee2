@@ -5,6 +5,7 @@ import SettingMovies from "../component/SettingMovies";
 import Sort from "../component/Sort";
 import { useDispatch, useSelector } from "react-redux";
 import { movieAction } from "../redux/actions/MovieAction";
+import GenreFilter from "../component/GenreFilter";
 const Movies = () => {
   const { popularMovies, optionMovies } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
@@ -22,6 +23,12 @@ const Movies = () => {
           </div>
           <div className="filterBox">
             <Filter movie={popularMovies.results} />
+          </div>
+          <div className="genrefilter">
+            {/* {optionMovies.map((item, index) => (
+              <GenreFilter movie={item} key={index} />
+            ))} */}
+            <GenreFilter movie={optionMovies} />
           </div>
         </div>
       </Col>

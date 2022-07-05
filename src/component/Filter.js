@@ -7,7 +7,7 @@ import { movieAction } from "../redux/actions/MovieAction";
 const Filter = ({ movie }) => {
   let dispatch = useDispatch();
 
-  console.log("movie", movie);
+  // console.log("movie", movie);
 
   let newArr = movie
     .map((item) => item.release_date)
@@ -40,9 +40,9 @@ const Filter = ({ movie }) => {
   const [last, setLast] = useState(
     filterRangeYear[filterRangeYear.length - 1].substring(0, 4)
   );
-  console.log("newArr", newArr);
-  console.log("indexArr", indexArr);
-  console.log("resArr", resArr);
+  // console.log("newArr", newArr);
+  // console.log("indexArr", indexArr);
+  // console.log("resArr", resArr);
 
   // let resArr2 = resArr.map((item) => item.release_date);
   // console.log("resArr2", resArr2);
@@ -50,7 +50,7 @@ const Filter = ({ movie }) => {
   // console.log("얻고싶은것", resArr.splice(1, 4));
 
   const filterPoint = (event) => {
-    console.log("event", event);
+    // console.log("event", event);
     setFirst(String(event[0]).substring(0, 4));
     setLast(String(event[1]).substring(0, 4));
     // dispatch(movieAction.getOptionMovie(resArr.splice(1, event[1] + 1)));
@@ -60,9 +60,9 @@ const Filter = ({ movie }) => {
         item.release_date.replace(/\-/g, "") <= event[1]
       );
     });
-    console.log("최최최", finalArr);
+    // console.log("최최최", finalArr);
     dispatch(movieAction.getOptionMovie(finalArr));
-    console.log("핳하ㅏ", first, last);
+    // console.log("핳하ㅏ", first, last);
   };
 
   return (
